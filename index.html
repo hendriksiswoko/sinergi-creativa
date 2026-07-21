@@ -300,6 +300,33 @@
   .reveal.is-visible{ opacity:1; transform:none; }
 
   @media(max-width:859px){ .nav-links{ display:none; } }
+
+  /* ---------- Portfolio gallery ---------- */
+  .portfolio-grid{ display:grid; grid-template-columns:1fr; gap:24px; margin-top:40px; }
+  @media(min-width:820px){ .portfolio-grid{ grid-template-columns:repeat(3,1fr); } }
+  .portfolio-card{ background:var(--white); border:1px solid var(--border); border-radius:18px; overflow:hidden; }
+  .portfolio-card img{ width:100%; display:block; border-bottom:1px solid var(--border); }
+  .portfolio-card-body{ padding:18px 20px; }
+  .portfolio-card h3{ font-size:16px; margin-bottom:4px; }
+  .portfolio-card p{ color:var(--ink-soft); font-size:13.5px; }
+  .portfolio-note{ margin-top:24px; color:var(--ink-soft); font-size:14px; font-style:italic; }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    display:flex; align-items:center; gap:10px;
+    background:var(--ink); color:var(--white); text-decoration:none;
+    padding:14px; border-radius:100px; box-shadow:0 6px 18px rgba(36,50,47,0.28);
+    transition:background 0.15s ease, padding 0.15s ease;
+  }
+  .wa-float:hover{ background:var(--toska-deep); }
+  .wa-float-label{
+    max-width:0; overflow:hidden; white-space:nowrap; font-size:14px; font-weight:600;
+    transition:max-width 0.25s ease; opacity:0;
+  }
+  .wa-float:hover .wa-float-label{ max-width:160px; opacity:1; margin-left:2px; }
+  .wa-float-icon{ display:flex; flex:none; }
+  @media(max-width:600px){ .wa-float-label{ display:none; } .wa-float:hover .wa-float-label{ display:none; } }
 </style>
 </head>
 <body>
@@ -312,6 +339,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#portofolio">Portofolio</a></li>
       <li><a href="#proses">Proses</a></li>
       <li><a href="#harga">Harga</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -400,6 +428,38 @@
     </div>
   </section>
 
+  <!-- PORTFOLIO -->
+  <section id="portofolio">
+    <div class="wrap reveal">
+      <p class="eyebrow">Contoh hasil kerja</p>
+      <h2>Proyek yang sudah kami kerjakan</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img src="assets/portfolio-balimukti.jpg" alt="Website Bali Mukti Consultant & Contractor">
+          <div class="portfolio-card-body">
+            <h3>Bali Mukti Consultant & Contractor</h3>
+            <p>Konsultan & kontraktor bangunan</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="assets/portfolio-tapakbali.jpg" alt="Website Tapak Bali, jasa tur wisata">
+          <div class="portfolio-card-body">
+            <h3>Tapak Bali</h3>
+            <p>Jasa tur & panduan wisata</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="assets/portfolio-happypogot.jpg" alt="Website Happy Pogot, trip mancing">
+          <div class="portfolio-card-body">
+            <h3>Happy Pogot</h3>
+            <p>Trip & wisata mancing</p>
+          </div>
+        </div>
+      </div>
+      <p class="portfolio-note">*Proyek mandiri untuk memperluas portofolio, bukan pesanan berbayar dari klien.</p>
+    </div>
+  </section>
+
   <!-- WHY US -->
   <section id="kenapa">
     <div class="wrap reveal">
@@ -476,8 +536,8 @@
       <p class="eyebrow">Kenapa kami baru mulai</p>
       <h2>Studio baru, tapi bukan asal-asalan</h2>
       <div class="honest-box">
-        <p>Sinergi Creativa masih studio baru — jadi kami belum punya daftar panjang testimoni klien untuk dipajang di sini. Yang kami tawarkan sebagai gantinya: perhatian penuh di setiap proyek, harga early-client yang bersahabat, dan komunikasi yang jujur soal apa yang bisa dan belum bisa kami kerjakan.</p>
-        <p>Kalau Anda salah satu klien pertama kami, halaman Anda akan jadi salah satu yang paling kami perhatikan detailnya.</p>
+        <p>Sinergi Creativa masih studio baru — jadi kami belum punya daftar panjang testimoni klien untuk dipajang di sini. Proyek yang Anda lihat di atas adalah inisiatif mandiri kami untuk mengasah kualitas kerja sebelum melayani klien berbayar.</p>
+        <p>Yang kami tawarkan: perhatian penuh di setiap proyek, harga early-client yang bersahabat, dan komunikasi yang jujur soal apa yang bisa dan belum bisa kami kerjakan. Kalau Anda salah satu klien pertama kami, halaman Anda akan jadi salah satu yang paling kami perhatikan detailnya.</p>
       </div>
     </div>
   </section>
@@ -586,6 +646,14 @@
     <div class="footer-bottom">© 2026 Sinergi Creativa. Semua hak dilindungi.</div>
   </div>
 </footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/62895412375516" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp Sinergi Creativa">
+  <span class="wa-float-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.79 2.4a8.19 8.19 0 0 1 2.4 5.83c0 4.55-3.71 8.24-8.25 8.24a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.25-4.35c0-4.54 3.71-8.26 8.28-8.26Zm-4.6 4.53c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.71 2.72 4.24 3.7 2.1.83 2.53.66 2.98.62.46-.04 1.49-.6 1.7-1.19.21-.58.21-1.08.15-1.19-.06-.1-.22-.16-.46-.28-.24-.12-1.49-.73-1.72-.82-.23-.08-.4-.12-.56.12-.16.24-.64.82-.79.99-.14.16-.29.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.56-.43-.14-.01-.3-.01-.46-.01Z"/></svg>
+  </span>
+  <span class="wa-float-label">Chat kami</span>
+</a>
 
 <script>
   // Scroll reveal
